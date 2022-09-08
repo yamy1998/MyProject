@@ -1,14 +1,16 @@
 ﻿using System;
-using coding1.Pages;
+using MyProject.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace coding1.Utilities
+namespace MyProject.Utilities
 {
     public class CommonDriver
     {
         public IWebDriver driver;
+
+        LoginPage loginPageObj = new LoginPage();
 
         [SetUp]
 
@@ -18,8 +20,15 @@ namespace coding1.Utilities
             driver = new ChromeDriver();
 
             // Login page object initialization and definition
-            LoginPage loginPageObj = new LoginPage();
-            loginPageObj.LoginSteps(driver);
+            loginPageObj.loginSteps(driver);
         }
+
+        [OneTimeSetUp]
+
+        public void CloseTestRun()
+        {
+            driver.Quit();
+        }
+
     }
 }

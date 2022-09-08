@@ -1,8 +1,9 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Chrome;
 
-namespace coding1.Utilities
+namespace MyProject.Utilities
 {
     public class WaitHelpers
     {

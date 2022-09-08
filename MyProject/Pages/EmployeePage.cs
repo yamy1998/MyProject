@@ -1,8 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
-namespace coding1.Pages
+namespace MyProject.Pages
 {
     public class EmployeePage
     {
@@ -14,7 +15,7 @@ namespace coding1.Pages
 
             // input Name
             IWebElement nameTextbox = driver.FindElement(By.XPath("//*[@id=\"Name\"]"));
-            nameTextbox.SendKeys("James Bond");
+            nameTextbox.SendKeys("JamesBond");
 
             // input Username
             IWebElement usernameTextbox = driver.FindElement(By.Id("Username"));
@@ -26,11 +27,11 @@ namespace coding1.Pages
 
             // input Password
             IWebElement passwordTextbox = driver.FindElement(By.Id("Password"));
-            passwordTextbox.SendKeys("123123");
+            passwordTextbox.SendKeys("Abc123123");
 
             // input RetypePassword
             IWebElement retypepasswordTextbox = driver.FindElement(By.Id("RetypePassword"));
-            retypepasswordTextbox.SendKeys("123123");
+            retypepasswordTextbox.SendKeys("Abc123123");
 
             // click on Save button
             IWebElement saveButton1 = driver.FindElement(By.Id("SaveButton"));
@@ -43,7 +44,7 @@ namespace coding1.Pages
             IWebElement newName = driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             IWebElement newUsername = driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[3]/table/tbody/tr[last()]/td[2]"));
 
-            Assert.That(newName.Text == "James Bond", "Actual name and expected name do not match.");
+            Assert.That(newName.Text == "JamesBond", "Actual name and expected name do not match.");
             Assert.That(newUsername.Text == "JamesBond007", "Actual username and expected username do not match.");
         }
 
@@ -58,7 +59,7 @@ namespace coding1.Pages
 
             IWebElement findEmployeeCreated = driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
-            if (findEmployeeCreated.Text == "James Bond")
+            if (findEmployeeCreated.Text == "JamesBond")
             {
                 // if found, click on the edit button
                 IWebElement editButton1 = driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[3]/table/tbody/tr[last()]/td[3]/a[1]"));
@@ -73,7 +74,7 @@ namespace coding1.Pages
             // click on name textbox, clear and update the name
             IWebElement nameTextbox1 = driver.FindElement(By.Id("Name"));
             nameTextbox1.Clear();
-            nameTextbox1.SendKeys("Tom Cruise");
+            nameTextbox1.SendKeys("TomCruise");
 
             // click on username textbox, clear and update the username
             IWebElement usernameTextbox1 = driver.FindElement(By.Id("Username"));

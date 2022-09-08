@@ -1,7 +1,8 @@
-﻿using coding1.Utilities;
+﻿using MyProject.Utilities;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
-namespace coding1.Pages
+namespace MyProject.Pages
 {
     public class HomePage
     {

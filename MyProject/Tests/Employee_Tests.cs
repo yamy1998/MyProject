@@ -1,8 +1,9 @@
-﻿using coding1.Pages;
-using coding1.Utilities;
+﻿using MyProject.Pages;
+using MyProject.Utilities;
 using NUnit.Framework;
+using OpenQA.Selenium.Chrome;
 
-namespace coding1.Tests
+namespace MyProject.Tests
 {
     [TestFixture]
     [Parallelizable]

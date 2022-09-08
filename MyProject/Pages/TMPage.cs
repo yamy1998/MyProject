@@ -1,8 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
-namespace coding1.Pages
+namespace MyProject.Pages
 {
     public class TMPage
     {
@@ -15,7 +16,7 @@ namespace coding1.Pages
             // Select "Time" option from Typecode dropdown
             IWebElement typeCodeDropdown = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span/span[2]/span"));
             typeCodeDropdown.Click();
-            IWebElement timeOption = driver.FindElement(By.XPath("//*[@id='TypeCode_listbox']/li[2]"));
+            IWebElement timeOption = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[1]"));
             timeOption.Click();
 
             // Input Code
@@ -43,25 +44,29 @@ namespace coding1.Pages
             IWebElement gotolastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             gotolastpageButton.Click();
 
-            IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
-            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
 
             Assert.That(newCode.Text == "Aug2022", "Actual code and expected code do not match");
             Assert.That(newDescription.Text == "123", "Actual description and expected description do not match");
             Assert.That(newPrice.Text == "$500.00", "Actual price and expected price do not match");
-
-            //if (newCode.Text == "Aug2022")
-            //{
-            //    Assert.Pass("Time record created successfully!");
-            //}
-            //else
-            //{
-            //    Assert.Fail("New time record hasn't been created.");
-            //}
-
         }
 
+        public string GetCode(IWebDriver driver)
+        {
+            IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            return newCode.Text;
+        }
+
+        public string GetDescription(IWebDriver driver)
+        {
+            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            return newDescription.Text;
+        }
+
+        public string GetPrice(IWebDriver driver)
+        {
+            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
+            return newPrice.Text; 
+        }
 
         public void EditTM(IWebDriver driver)
         {
