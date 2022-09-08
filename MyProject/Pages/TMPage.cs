@@ -45,9 +45,7 @@ namespace MyProject.Pages
             gotolastpageButton.Click();
 
 
-            Assert.That(newCode.Text == "Aug2022", "Actual code and expected code do not match");
-            Assert.That(newDescription.Text == "123", "Actual description and expected description do not match");
-            Assert.That(newPrice.Text == "$500.00", "Actual price and expected price do not match");
+            
         }
 
         public string GetCode(IWebDriver driver)
@@ -68,7 +66,7 @@ namespace MyProject.Pages
             return newPrice.Text; 
         }
 
-        public void EditTM(IWebDriver driver)
+        public void EditTM(IWebDriver driver, string description)
         {
             Thread.Sleep(1500);
             // go to last page
@@ -98,7 +96,7 @@ namespace MyProject.Pages
             // click on "description" Textbox, clear and update the description
             IWebElement descriptionTextBox1 = driver.FindElement(By.Id("Description"));
             descriptionTextBox1.Clear();
-            descriptionTextBox1.SendKeys("Edited");
+            descriptionTextBox1.SendKeys(description);
 
             // click on "Price" textbox, clear and update the price
             IWebElement priceTag = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span"));
@@ -120,16 +118,21 @@ namespace MyProject.Pages
             goTolastpageButton1.Click();
 
             IWebElement editedCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-            IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            
             IWebElement editedPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
 
             // Assertion
             Assert.That(editedCode.Text == "Edited", "Actual Code and expected code do not match.");
-            Assert.That(editedDescription.Text == "Edited", "Actual Description and expected description do not match.");
+            //Assert.That(editedDescription.Text == "Edited", "Actual Description and expected description do not match.");
             Assert.That(editedPrice.Text == "$150.00", "Actual Price and expected price do not match.");
 
         }
 
+        public string GetEditDescription(IWebDriver driver)
+        {
+            IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            return editedDescription.Text; 
+        }
 
         public void DeleteTM(IWebDriver driver)
         {
@@ -170,6 +173,11 @@ namespace MyProject.Pages
             Assert.That(Description.Text != "Edited", "Description record hasn't been deleted.");
             Assert.That(Price.Text != "$150.00", "Price record hasn't been deleted.");
 
+        }
+
+        internal void EditTM(IWebDriver driver)
+        {
+            throw new NotImplementedException();
         }
     }
 }

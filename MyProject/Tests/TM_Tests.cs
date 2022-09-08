@@ -44,10 +44,9 @@ namespace MyProject.Tests
         }
 
         [TearDown]
-        public void CloseTestRun()
+        public void closeTestRun()
         {
             driver.Quit();
-
         }
 
 
