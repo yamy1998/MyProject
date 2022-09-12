@@ -50,19 +50,29 @@ namespace MyProject.StepDefinitions
             Assert.That(newPrice == "$500.00", "Actual price and expected price do not match");
         }
 
-        [When(@"I update '([^']*)' on an existing time and material record")]
-        public void WhenIUpdateOnAnExistingTimeAndMaterialRecord(string description)
+        [When(@"I update '([^']*)', '([^']*)' and '([^']*)' on an existing time and material record")]
+        public void WhenIUpdateAndOnAnExistingTimeAndMaterialRecord(string description, string code, string price)
         {
-            tmPageObj.EditTM(driver, description);
+            tmPageObj.EditTM(driver, description, code, price);
         }
 
-
-
-        [Then(@"The record should have the updated '([^']*)'")]
-        public void ThenTheRecordShouldHaveTheUpdated(string description)
+        [Then(@"The record should have the updated '([^']*)', '([^']*)' and '([^']*)'")]
+        public void ThenTheRecordShouldHaveTheUpdatedAnd(string description, string code, string price)
         {
-            
+            string editedDescription = tmPageObj.GetDescription(driver);
+            string editedPrice = tmPageObj.GetPrice(driver);
+            string editedCode = tmPageObj.GetCode(driver);
+
+            // Assertion
+            Assert.That(editedDescription == description, "Actual Description and expected description do not match.");
+            Assert.That(editedCode == code, "Actual Code and expected code do not match.");
+            Assert.That(editedPrice == price, "Actual Price and expected price do not match.");
         }
 
+ 
+     
     }
+
+
 }
+
