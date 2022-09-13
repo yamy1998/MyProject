@@ -110,9 +110,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit time and material record with valid datails")]
-        [NUnit.Framework.TestCaseAttribute("Time", "Amy", "5", null)]
-        [NUnit.Framework.TestCaseAttribute("Material", "Keyboard", "100", null)]
-        [NUnit.Framework.TestCaseAttribute("Updated", "Mouse", "1500", null)]
+        [NUnit.Framework.TestCaseAttribute("Time", "Snack", "5", null)]
+        [NUnit.Framework.TestCaseAttribute("Edited", "Keyboard", "$300.00", null)]
+        [NUnit.Framework.TestCaseAttribute("Updated", "Computer", "3000", null)]
         public void EditTimeAndMaterialRecordWithValidDatails(string description, string code, string price, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

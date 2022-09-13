@@ -18,8 +18,8 @@ Scenario Outline: Edit time and material record with valid datails
 	Then The record should have the updated '<Description>', '<Code>' and '<Price>'
 
 Examples:
-	| Description | Code     | Price |
-	| Time        | Amy      | 5     |
-	| Material    | Keyboard | 100   |
-	| Updated     | Mouse    | 1500  |
+	| Description | Code     | Price   |
+	| Time        | Snack    | $5.00   |
+	| Edited      | Keyboard | $300.00 |
+	| Updated     | Computer | $3000.00|
 

@@ -40,12 +40,10 @@ namespace MyProject.Pages
             saveButton.Click();
             Thread.Sleep(4000);
 
-            // Clicke if the record created is present in the table
+            // Click if the record created is present in the table
             IWebElement gotolastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             gotolastpageButton.Click();
 
-
-            
         }
 
         public string GetCode(IWebDriver driver)
@@ -136,6 +134,7 @@ namespace MyProject.Pages
             IWebElement editedPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
             return editedPrice.Text; 
         }
+
 
         public void DeleteTM(IWebDriver driver)
         {

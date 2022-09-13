@@ -12,7 +12,7 @@ namespace MyProject.Utilities
 
         LoginPage loginPageObj = new LoginPage();
 
-        [SetUp]
+        [OneTimeSetUp]
 
         public void LoginActions()
         {
@@ -23,12 +23,11 @@ namespace MyProject.Utilities
             loginPageObj.loginSteps(driver);
         }
 
-        [OneTimeSetUp]
+        [OneTimeTearDown]
 
         public void CloseTestRun()
         {
             driver.Quit();
         }
-
     }
 }

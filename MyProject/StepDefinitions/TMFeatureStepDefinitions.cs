@@ -59,9 +59,9 @@ namespace MyProject.StepDefinitions
         [Then(@"The record should have the updated '([^']*)', '([^']*)' and '([^']*)'")]
         public void ThenTheRecordShouldHaveTheUpdatedAnd(string description, string code, string price)
         {
-            string editedDescription = tmPageObj.GetDescription(driver);
-            string editedPrice = tmPageObj.GetPrice(driver);
-            string editedCode = tmPageObj.GetCode(driver);
+            string editedDescription = tmPageObj.GetEditDescription(driver);
+            string editedPrice = tmPageObj.GetEditPrice(driver);
+            string editedCode = tmPageObj.GetEditCode(driver);
 
             // Assertion
             Assert.That(editedDescription == description, "Actual Description and expected description do not match.");

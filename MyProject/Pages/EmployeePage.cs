@@ -38,7 +38,7 @@ namespace MyProject.Pages
             saveButton1.Click();
 
             // check if the new employee is created and present in the table
-            IWebElement gotolastpageButton = driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[4]/a[4]/span"));
+            IWebElement gotolastpageButton = driver.FindElement(By.CssSelector("#usersGrid > div.k-pager-wrap.k-grid-pager.k-widget > a.k-link.k-pager-nav.k-pager-last.k-state-disabled > span"));
             gotolastpageButton.Click();
 
             IWebElement newName = driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
